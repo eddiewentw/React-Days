@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<meta name="description" content="React.js library" />
+	<meta name="author" content="EddieWen | 温奕書" />
+	<meta name="URL" content="http://github.eddiewen.me/React-clock/" />
+	<meta name="image" content="https://facebook.github.io/react/img/logo_og.png" />
+
+	<!-- Open Graph -->
+	<meta property="og:site_name" content="React Clock" />
+	<meta property="og:title" content="Clock in React.js" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="http://github.eddiewen.me/React-clock/"  />
+	<meta property="og:image" content="https://facebook.github.io/react/img/logo_og.png" />
+	<meta property="og:description" content="React.js library" />
+
+	<title>React Clock</title>
+	<link rel="Shortcut Icon" type="image/x-icon" href="https://facebook.github.io/react/img/logo_og.png" />
+
+	<!-- React.js -->
+	<script type="text/javascript" src="./library/react.min.js"></script>
+	<script type="text/javascript" src="./library/react-dom.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser.js"></script>
+
+	<!-- my CSS -->
+	<style type="text/css">
+		body{margin:0;padding:0;color:#202020;font-family:"Helvetica Neue"}#container{width:100vw;height:100vh;overflow:hidden}.now{font-size:120px;font-weight:bold;margin: 0px auto;letter-spacing:5px;text-shadow: 0px 1px 0px white, 0px -1px 0px white, 1px 0px 0px white, -1px 0px 0px white;}.v-mid{display:-webkit-flex;display:-ms-flexbox;display:-moz-box;display:flex;-webkit-align-items:center;-moz-align-items:center;-ms-align-items:center;align-items:center}
+	</style>
+
+</head>
+<body>
+
+	<div id="container" class="v-mid"></div>
+
+	<script type="text/babel">
+		var Time = React.createClass({
+			timeFormat: function(t) {
+				return t < 10 ? "0"+t : t;
+			},
+			getNowTime: function() {
+				var now = new Date();
+				var hour = this.timeFormat( now.getHours() );
+				var min = this.timeFormat( now.getMinutes() );
+				var sec = this.timeFormat( now.getSeconds() );
+
+				return [hour, min, sec];
+			},
+			getInitialState: function() {
+				var timeArray = this.getNowTime();
+				document.body.style.backgroundColor = '#'+timeArray.join('');
+				return { time: timeArray.join('  :  ') }
+			},
+			componentDidMount: function() {
+				setInterval( function() {
+					var timeArray = this.getNowTime();
+					this.setState({ time: timeArray.join('  :  ') });
+					document.body.style.backgroundColor = '#'+timeArray.join('');
+				}.bind(this), 1000);
+			},
+			render: function() {
+				return (
+					<div className="now">
+						{this.state.time}
+					</div>
+				);
+			}
+		});
+
+		ReactDOM.render(
+			<Time />, document.getElementById('container')
+		);
+	</script>
+
+</body>
+</html>
