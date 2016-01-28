@@ -1,18 +1,15 @@
 body {
 	color: #202020;
+	font-family: "Lobster";
 }
 
 .unit {
 	width: 70%;
-	margin: 50px auto;
+	margin: 120px auto;
 	padding-bottom: 20px;
 	font-size: 52px;
 	text-align: center;
 	border-bottom: 1px solid #DCDCDC;
-}
-
-.money {
-	font-family: "Lobster";
 }
 
 .money::after {
