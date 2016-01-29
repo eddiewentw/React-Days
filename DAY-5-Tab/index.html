@@ -28,37 +28,94 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser.js"></script>
 
 	<!-- my CSS -->
-	<link rel="stylesheet" href="css/main.css" />
+	<style type="text/css">
+	body{width:100vw;height:100vh;overflow:hidden;background-image:url(../desktop.png);background-size:100vw 100vh;font-family:'Helvetica Neue';font-weight:400}.finder{width:650px;height:400px;background-color:#fff;margin:80px auto 0 140px;border-radius:6px;box-shadow:2px 2px 5px 5px rgba(0,0,0,.4)}.top-row{background-color:#E2E4E2;width:100%;height:26px;padding-top:6px;border-radius:7px 7px 0 0;border-bottom:1px solid #999799;text-align:center;position:relative}.circle{width:12px;height:12px;border-radius:6px;background-color:#EE5D55;position:absolute;top:10px;left:8px}.circle.y{background-color:#FABD2E;left:26px}.circle.g{background-color:#31CD43;left:44px}.tab-row{width:650px;height:21px;border-bottom:1px solid #9C9A9C;font-size:0;position:relative}.tab-row>div{height:15px;display:inline-block;text-align:center;padding:3px 0;font-size:13px;background-color:#C0BFC0;cursor:pointer;position:absolute;top:0;left:0}.tab-row .tab-2{left:310px}.tab-row .tab-plus{left:620px}.tab-row>div:hover{background-color:#B6B4B6}.tab-row .active,.tab-row .active:hover{background-color:#D8D6D8}.tab-row .active{cursor:default}.tab{width:309px;border-right:1px solid #9B9B9B}.tab-plus{width:30px;line-height:15px}.content{padding-top:10px;padding-left:20px}.content>div{display:none}.content .active{display:block}.content img{margin-right:20px}
+	</style>
 
 </head>
 <body>
 
 	<div id="container"></div>
 
-	<div class="finder">
-		<div class="top-row">
-			<div class="title">Developer</div>
-
-			<div class="circle r"></div>
-			<div class="circle y"></div>
-			<div class="circle g"></div>
-		</div>
-		<div class="tab-row">
-			<div class="tab tab-1 active">Music</div>
-			<div class="tab tab-2">Documents</div>
-			<div class="tab-plus">＋</div>
-		</div>
-		<div class="content">
-			<div class="music active">
-				<img src="folder.png" />
-			</div>
-			<div class="document">
-				<img src="folder.png" /><img src="folder.png" />
-			</div>
-		</div>
-	</div>
-
 	<script type="text/babel">
+
+		var TabRow = React.createClass({
+			handleActiveTab: function(tabNum) {
+				var thisClass = 'tab tab-' + tabNum;
+				if( tabNum == 1 && this.props.tab == 1 )
+					thisClass += " active";
+				else if( tabNum == 2 && this.props.tab == 2 )
+					thisClass += " active";
+
+				return thisClass;
+			},
+ 			render: function() {
+				return (
+					<div className="tab-row">
+						<div className={this.handleActiveTab(1)} onClick={this.props.onClick.bind(null, 1)}>Music</div>
+						<div className={this.handleActiveTab(2)} onClick={this.props.onClick.bind(null, 2)}>Documents</div>
+						<div className="tab-plus">＋</div>
+					</div>
+				);
+			}
+		});
+
+		var Content = React.createClass({
+			handleActiveContent: function(contentNum) {
+				var thisClass = "";
+				if( contentNum == 1 ) {
+					thisClass = "music";
+					if( this.props.tab == 1 ) thisClass += " active";
+				} else {
+					thisClass = "documents";
+					if( this.props.tab == 2 ) thisClass += " active";
+				}
+				return thisClass;
+			},
+			render: function() {
+				return (
+					<div className="content">
+						<div className={this.handleActiveContent(1)}>
+							<img src="folder.png" />
+						</div>
+						<div className={this.handleActiveContent(2)}>
+							<img src="folder.png" /><img src="folder.png" />
+						</div>
+					</div>
+				);
+			}
+		});
+
+		// All in this
+		var Finder = React.createClass({
+			getInitialState: function() {
+				return { tab: 1 };
+			},
+			handleTabClick: function(i) {
+				if( this.state.tab != i ) {
+					this.setState({ tab: i });
+				}
+			},
+			render: function() {
+				return (
+					<div className="finder">
+						<div className="top-row">
+							<div className="title">Developer</div>
+
+							<div className="circle r"></div>
+							<div className="circle y"></div>
+							<div className="circle g"></div>
+						</div>
+						<TabRow tab={this.state.tab} onClick={this.handleTabClick} />
+						<Content tab={this.state.tab} />
+					</div>
+				);
+			}
+		});
+
+		ReactDOM.render(
+			<Finder />, document.getElementById('container')
+		);
 	</script>
 
 </body>
