@@ -6,4 +6,8 @@
 
 ----
 
-即時匯率-JSON: http://rate-exchange.herokuapp.com/fetchRate?from=USD&to=TWD
+#### Yahoo Developer Network:
+https://developer.yahoo.com/yql/console/?q=show%20tables&env=store://datatables.org/alltableswithkeys#h=select+*+from+yahoo.finance.xchange+where+pair+in+(%22USDTWD%22)
+
+#### 即時匯率-JSON:
+https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.xchange%20where%20pair%20in%20(%22USDTWD%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys
