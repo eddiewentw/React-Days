@@ -76,10 +76,28 @@
 }
 
 .pic-wrapper {
-	width: 1800px;
+	width: 1350px;
 	height: 300px;
-	margin-left: 0px;
+	margin-left: -450px;
 	font-size: 0px;
+}
+
+.pic-wrapper.prev {
+	margin-left: 0px;
+
+	-webkit-transition: all 0.7s;
+	   -moz-transition: all 0.7s;
+		 -o-transition: all 0.7s;
+			transition: all 0.7s;
+}
+
+.pic-wrapper.next {
+	margin-left: -900px;
+
+	-webkit-transition: all 0.7s;
+	   -moz-transition: all 0.7s;
+		 -o-transition: all 0.7s;
+			transition: all 0.7s;
 }
 
 .pic-wrapper img {
