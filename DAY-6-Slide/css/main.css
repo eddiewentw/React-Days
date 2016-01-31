@@ -1,0 +1,88 @@
+.arrow {
+	width: 120px;
+	height: 120px;
+	border-radius: 60px;
+	background-color: rgba( 0, 0, 0, 0.1 );
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	margin-top: -60px;
+	left: 30px;
+	cursor: pointer;
+
+	-webkit-transition: all 0.3s;
+	   -moz-transition: all 0.3s;
+		 -o-transition: all 0.3s;
+			transition: all 0.3s;
+}
+
+.arrow.right {
+	left: auto;
+	right: 30px;
+	transform: rotate(180deg);
+}
+
+.arrow img {
+	margin-left: -10px;
+	margin-top: 20px;
+
+	-webkit-transition: all 0.3s;
+	   -moz-transition: all 0.3s;
+		 -o-transition: all 0.3s;
+			transition: all 0.3s;
+}
+
+.arrow:hover img {
+	margin-left: -18px;
+}
+
+.arrow:hover {
+	background-color: rgba( 0, 0, 0, 0.25 );
+}
+
+.dots-wrapper {
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	left: 0px;
+	bottom: 20px;
+}
+
+.dot {
+	width: 10px;
+	height: 10px;
+	display: inline-block;
+	border-radius: 5px;
+	margin: 0px 3px;
+	background-color: rgba( 0, 0, 0, 0.2 );
+	cursor: pointer;
+}
+
+.dot:hover {
+	background-color: rgba( 0, 0, 0, 0.4 );
+}
+
+.dot.active {
+	background-color: #2196F3;
+}
+
+.pic-box {
+	width: 450px;
+	height: 300px;
+	background-color: blue;
+	margin: 0px auto;
+	margin-top: 160px;
+	overflow: hidden;
+}
+
+.pic-wrapper {
+	width: 1800px;
+	height: 300px;
+	margin-left: 0px;
+	font-size: 0px;
+}
+
+.pic-wrapper img {
+	width: 450px;
+	display: inline-block;
+}
