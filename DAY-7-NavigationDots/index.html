@@ -31,41 +31,99 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser.js"></script>
 
 	<!-- my CSS -->
-	<link rel="stylesheet" href="css/main.css" />
+	<style type="text/css">
+	body{font-family:'Poiret One';margin:0;padding:0;color:#202020}.section{width:100vw;height:100vh;background-color:rgba(220,220,220,.7);display:-webkit-flex;display:-ms-flexbox;display:-moz-box;display:flex;-webkit-align-items:center;-moz-align-items:center;-ms-align-items:center;align-items:center}.section:nth-child(2){background-color:#B9F6CA}.section:nth-child(3){background-color:#69F0AE}.section:nth-child(4){background-color:#00E676}.section:nth-child(5){background-color:#00C853}h2{margin:0 auto;font-size:44px}.navigation{width:10px;height:80px;position:fixed;top:50%;margin-top:-40px;right:20px}.dot{width:10px;height:10px;border-radius:5px;background-color:#C9C9C9;margin-bottom:7px;cursor:pointer;-webkit-transition:all .3s;-moz-transition:all .3s;-o-transition:all .3s;transition:all .3s}.dot.active,.dot:hover{background-color:#03A9F4}
+	</style>
 
 </head>
 <body>
 
-	<div id="container">
-	</div>
-
-	<div class="section-box">
-		<div class="section">
-			<h2>Hello, there.</h2>
-		</div>
-		<div class="section">
-			<h2>This is Eddie's React Day-7.</h2>
-		</div>
-		<div class="section">
-			<h2>It's awesome.</h2>
-		</div>
-		<div class="section">
-			<h2>See you tomorrow.</h2>
-		</div>
-		<div class="section">
-			<h2>End.</h2>
-		</div>
-
-		<div class="navigation">
-			<div class="dot active"></div>
-			<div class="dot"></div>
-			<div class="dot"></div>
-			<div class="dot"></div>
-			<div class="dot"></div>
-		</div>
-	</div>
+	<div id="container"></div>
 
 	<script type="text/babel">
+		var screenHeight = 0;
+		var contents = [
+			{ id: 1, text: "Hello, there." },
+			{ id: 2, text: "This is Eddie's React Day-7." },
+			{ id: 3, text: "It's cool." },
+			{ id: 4, text: "See you tomorrow." },
+			{ id: 5, text: "End." }
+		];
+
+		var NavigationDots = React.createClass({
+			render: function() {
+				var dots = this.props.text.map( function(t) {
+					var thisClass = t.id == this.props.currentSec ? "dot active" : "dot";
+					return (
+						<div className={thisClass} onClick={this.props.onClick.bind(null, t.id)}></div>
+					);
+				}.bind(this));
+				return (
+					<div className="navigation">
+						{dots}
+					</div>
+				);
+			}
+		});
+
+		var Sections = React.createClass({
+			render: function() {
+				var sectionDiv = this.props.text.map( function(t) {
+					return (
+						<div className="section" key={t.id}>
+							<h2>{t.text}</h2>
+						</div>
+					);
+				});
+				return (
+					<div className="section-box">
+						{sectionDiv}
+					</div>
+				);
+			}
+		})
+
+		var SectionBox = React.createClass({
+			getInitialState: function() {
+				return ({ currentSection: 1 });
+			},
+			componentDidMount: function() {
+				window.addEventListener( 'scroll', this.handleWindowScroll );
+				screenHeight = document.getElementsByClassName('section')[0].clientHeight;
+			},
+			componentWillUnmount: function() {
+				window.removeEventListener( 'scroll', this.handleWindowScroll );
+			},
+			handleDotClick: function(i) {
+				this.setState({ currentSection: i });
+				window.scrollTo( 0, screenHeight*(i-1) );
+			},
+			handleWindowScroll: function() {
+				var currentTop = document.body.scrollTop;
+
+				var quotient = Math.floor( currentTop/screenHeight );
+				var remainder = currentTop%screenHeight;
+
+				var newCurrentSection = remainder > screenHeight*0.7 ? quotient+2 : quotient+1;
+				if( newCurrentSection <= 0 ) newCurrentSection = 1;
+
+				if( newCurrentSection != this.state.currentSection ) {
+					this.setState({ currentSection: newCurrentSection });
+				}
+			},
+			render: function() {
+				return (
+					<div>
+						<Sections currentSec={this.state.currentSection} text={this.props.text} />
+						<NavigationDots currentSec={this.state.currentSection} text={this.props.text} onClick={this.handleDotClick}/>
+					</div>
+				);
+			}
+		});
+
+		ReactDOM.render(
+			<SectionBox text={contents} />, document.getElementById('container')
+		);
 	</script>
 
 </body>

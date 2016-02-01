@@ -58,6 +58,11 @@ h2 {
 	background-color: #C9C9C9;
 	margin-bottom: 7px;
 	cursor: pointer;
+
+	-webkit-transition: all 0.3s;
+	   -moz-transition: all 0.3s;
+		 -o-transition: all 0.3s;
+			transition: all 0.3s;
 }
 
 .dot.active, .dot:hover {
