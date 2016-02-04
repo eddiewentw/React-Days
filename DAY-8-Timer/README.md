@@ -1,5 +1,5 @@
-## React Clock
+## React Timer
 
-會隨著時間變背景顏色喔
+基於 DAY-1-Clock 改成的倒數計時器喔
 
-http://github.eddiewen.me/React-Days/DAY-1-Clock/
+http://github.eddiewen.me/React-Days/DAY-8-Timer/

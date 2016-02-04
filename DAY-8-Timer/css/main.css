@@ -4,6 +4,11 @@ body {
 	color: #000;
 	background-color: #9E9E9E;
 	font-family: "Helvetica Neue";
+
+	-webkit-transition: all .5s;
+	   -moz-transition: all .5s;
+		 -o-transition: all .5s;
+			transition: all .5s;
 }
 
 #container {
@@ -16,7 +21,7 @@ body {
 	width: 100%;
 }
 
-.now {
+#now {
 	font-size: 120px;
 	font-weight: bold;
 	text-align: center;
@@ -31,12 +36,12 @@ body {
 	display: flex;
 
 	-webkit-align-items: center;
-	   -moz-align-items: center;
+		 -moz-align-items: center;
 		-ms-align-items: center;
 			align-items: center;
 }
 
-.card {
+#card {
 	width: 450px;
 	height: 400px;
 	border-radius: 10px;
@@ -74,6 +79,94 @@ h5 {
 	text-align: center;
 	cursor: pointer;
 }
+
+/* Animate.css */
+
+.animated {
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+}
+
+.animated.fadeOutUp {
+	-webkit-animation-duration: .5s;
+	animation-duration: .5s;
+}
+
+.animated.infinite {
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes shake {
+	from, to {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+
+	10%, 30%, 50% {
+		-webkit-transform: translate3d(-20px, 0, 0);
+		transform: translate3d(-20px, 0, 0);
+	}
+
+	20%, 40%, 60% {
+		-webkit-transform: translate3d(20px, 0, 0);
+		transform: translate3d(20px, 0, 0);
+	}
+}
+
+@keyframes shake {
+	from, to {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+
+	10%, 30%, 50% {
+		-webkit-transform: translate3d(-20px, 0, 0);
+		transform: translate3d(-20px, 0, 0);
+	}
+
+	20%, 40%, 60% {
+		-webkit-transform: translate3d(20px, 0, 0);
+		transform: translate3d(20px, 0, 0);
+	}
+}
+
+.shake {
+	-webkit-animation-name: shake;
+	animation-name: shake;
+}
+
+@-webkit-keyframes fadeOutUp {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0;
+		-webkit-transform: translate3d(0, -100%, 0);
+		transform: translate3d(0, -100%, 0);
+	}
+}
+
+@keyframes fadeOutUp {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0;
+		-webkit-transform: translate3d(0, -100%, 0);
+		transform: translate3d(0, -100%, 0);
+	}
+}
+
+.fadeOutUp {
+	-webkit-animation-name: fadeOutUp;
+	animation-name: fadeOutUp;
+}
+
 
 /* Bootstrap's CSS */
 

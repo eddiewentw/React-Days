@@ -4,7 +4,7 @@ var Time = React.createClass({
 	},
 	render: function() {
 		return (
-			<div className="now">
+			<div id="now" className="animated infinite">
 				{this.timeFormat(this.props.min)}  :  {this.timeFormat(this.props.sec)}
 			</div>
 		);
@@ -40,7 +40,7 @@ var Seconds = React.createClass({
 var Card = React.createClass({
 	render: function() {
 		return (
-			<div className="card">
+			<div id="card" className="animated">
 				<div className="title">SET TIMER</div>
 				<h5>MINUTES:</h5>
 				<Minutes onChange={this.props.onMinutesChange} />
@@ -63,18 +63,33 @@ var Timer = React.createClass({
 		this.setState({ seconds: e.target.value });
 	},
 	startTimer: function() {
-		this.setState({ total: parseInt(this.state.minutes*60)+parseInt(this.state.seconds) });
-		countTimer = setInterval( function(){
-			var newTotal = this.state.total-1
+		if( this.state.minutes == 0 && this.state.seconds == 0 )
+			alert('請設定時間');
+		else {
+			this.setState({ total: parseInt(this.state.minutes*60)+parseInt(this.state.seconds) });
+			countTimer = setInterval( function(){
+				var newTotal = this.state.total-1
 
-			this.setState({
-				minutes: Math.floor(newTotal/60),
-				seconds: newTotal%60,
-				total: this.state.total-1
-			});
+				this.setState({
+					minutes: Math.floor(newTotal/60),
+					seconds: newTotal%60,
+					total: this.state.total-1
+				});
 
-			if( newTotal == 0 ) { clearInterval( countTimer ); }
-		}.bind(this), 1000);
+				if( newTotal == 0 ) {
+					clearInterval( countTimer );
+					document.getElementById('now').className += ' shake';
+					setInterval( function() {
+						document.body.style.backgroundColor = '#F44336';
+						setTimeout( function() {
+							document.body.style.backgroundColor = 'white';
+						}, 500);
+					}, 1000);
+				}
+			}.bind(this), 1000);
+
+			document.getElementById('card').className += ' fadeOutUp';
+		}
 	},
 	render: function() {
 		return (
