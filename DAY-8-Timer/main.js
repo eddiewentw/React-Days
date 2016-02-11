@@ -81,8 +81,10 @@ var Timer = React.createClass({
 					document.getElementById('now').className += ' shake';
 					setInterval( function() {
 						document.body.style.backgroundColor = '#F44336';
+						document.title = "Time\'s up !!";
 						setTimeout( function() {
 							document.body.style.backgroundColor = 'white';
+							document.title = "React Timer";
 						}, 500);
 					}, 1000);
 				}
