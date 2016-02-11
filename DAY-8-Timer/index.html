@@ -119,12 +119,12 @@
 						if( newTotal == 0 ) {
 							clearInterval( countTimer );
 							document.getElementById('now').className += ' shake';
-							document.title = "Time\'s up !!";
 							setInterval( function() {
 								document.body.style.backgroundColor = '#F44336';
-								document.title = "React Timer";
+								document.title = "Time\'s up !!";
 								setTimeout( function() {
 									document.body.style.backgroundColor = 'white';
+									document.title = "React Timer";
 								}, 500);
 							}, 1000);
 						}
