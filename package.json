@@ -1,0 +1,9 @@
+{
+  "name": "react-days",
+  "description": "Hello, React.js!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EddieWen-Taiwan/React-Days.git"
+  },
+  "author": "Eddie Wen"
+}
