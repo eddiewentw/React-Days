@@ -1,1 +1,5 @@
 .DS_Store
+node_modules/*
+!node_modules/jquery
+!node_modules/react
+!node_modules/react-dom
