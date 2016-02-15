@@ -25,7 +25,9 @@
 	<!-- React.js -->
 	<script type="text/javascript" src="../node_modules/react/dist/react.min.js"></script>
 	<script type="text/javascript" src="../node_modules/react-dom/dist/react-dom.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser.min.js"></script>
+	<!-- build:del -->
+	
+	<!-- endbuild -->
 
 	<!-- my CSS -->
 	<link rel="stylesheet" href="css/main.css" />
@@ -34,8 +36,8 @@
 <body>
 
 	<div id="container"></div>
-
-	<script type="text/babel" src="main.jsx"></script>
-
+<!-- build:js -->
+<script type="text/javascript" src="main.js"></script>
+<!-- endbuild -->
 </body>
 </html>
