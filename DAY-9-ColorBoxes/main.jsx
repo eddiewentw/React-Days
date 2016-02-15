@@ -20,7 +20,7 @@ class Rect extends React.Component {
 
 	render() {
 		var rectBackgroundStyle = { backgroundColor: "rgb( "+this.state.rr+", "+this.state.gg+", "+this.state.aa+" )" };
-		return <div className="rect" onMouseEnter={this.mouseEnter} style={rectBackgroundStyle}></div>;
+		return <div className="rect" onMouseEnter={this.mouseEnter} onTouchEnd={this.mouseEnter} style={rectBackgroundStyle}></div>;
 	}
 
 }
