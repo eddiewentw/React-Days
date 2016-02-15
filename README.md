@@ -43,3 +43,12 @@ http://github.eddiewen.me/React-Days/DAY-7-NavigationDots/
 ###Day-8 Timer
 基於 Day-1 的時鐘改成的倒數計時器喔<br/>
 http://github.eddiewen.me/React-Days/DAY-8-Timer/
+
+----
+####:ghost: 開始嘗試 ES2015 並加入 Gulp
+----
+
+###Day-9 ColorBoxes
+滑鼠移過後會在 div 產生隨機顏色<br/>
+[...更多內容](https://github.com/EddieWen-Taiwan/React-Days/tree/gh-pages/DAY-9-ColorBoxes)<br/>
+http://github.eddiewen.me/React-Days/DAY-9-ColorBoxes/
