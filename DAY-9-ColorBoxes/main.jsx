@@ -2,6 +2,7 @@ class Rect extends React.Component {
 
 	constructor() {
 		super();
+
 		this.mouseEnter = this.mouseEnter.bind(this); // cool
 		this.state = {
 			rr: 0, gg: 0, aa: 0
@@ -19,8 +20,8 @@ class Rect extends React.Component {
 	}
 
 	render() {
-		var rectBackgroundStyle = { backgroundColor: "rgb( "+this.state.rr+", "+this.state.gg+", "+this.state.aa+" )" };
-		return <div className="rect" onMouseEnter={this.mouseEnter} onTouchEnd={this.mouseEnter} style={rectBackgroundStyle}></div>;
+		let rectBackgroundStyle = { backgroundColor: `rgb( ${this.state.rr}, ${this.state.gg}, ${this.state.aa} )` };
+		return <div className='rect' onMouseEnter={this.mouseEnter} onTouchEnd={this.mouseEnter} style={rectBackgroundStyle}></div>;
 	}
 
 }
@@ -32,16 +33,16 @@ class Playground extends React.Component {
 	}
 
 	render() {
-		var pgStyle = {
+		let pgStyle = {
 			width: this.getCleanNumber(document.width),
 			height: this.getCleanNumber(document.height)
 		};
-		var Rects = [];
-		for( var i = 0; i < pgStyle.width/100*pgStyle.height/100; i++ ) {
+		let Rects = [];
+		for( let i = 0; i < pgStyle.width/100*pgStyle.height/100; i++ ) {
 			Rects.push( <Rect /> );
 		}
 		return (
-			<div id="playground" style={pgStyle}>
+			<div id='playground' style={pgStyle}>
 				{Rects}
 			</div>
 		);

@@ -3,7 +3,7 @@ var babel = require('gulp-babel');
 var replaceHTML = require('gulp-html-replace');
 var rename = require('gulp-rename');
 
-var targetDAY = 'DAY-1-Clock/';
+var targetDAY = 'DAY-9-ColorBoxes/';
 
 gulp.task( 'default', ['babel', 'html'] );
 

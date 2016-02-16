@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -24,22 +24,22 @@ var Rect = function (_React$Component) {
 	}
 
 	_createClass(Rect, [{
-		key: "randomColor",
+		key: 'randomColor',
 		value: function randomColor() {
 			return parseInt(Math.random() * 255);
 		}
 	}, {
-		key: "mouseEnter",
+		key: 'mouseEnter',
 		value: function mouseEnter() {
 			this.setState({
 				rr: this.randomColor(), gg: this.randomColor(), aa: this.randomColor()
 			});
 		}
 	}, {
-		key: "render",
+		key: 'render',
 		value: function render() {
-			var rectBackgroundStyle = { backgroundColor: "rgb( " + this.state.rr + ", " + this.state.gg + ", " + this.state.aa + " )" };
-			return React.createElement("div", { className: "rect", onMouseEnter: this.mouseEnter, onTouchEnd: this.mouseEnter, style: rectBackgroundStyle });
+			var rectBackgroundStyle = { backgroundColor: 'rgb( ' + this.state.rr + ', ' + this.state.gg + ', ' + this.state.aa + ' )' };
+			return React.createElement('div', { className: 'rect', onMouseEnter: this.mouseEnter, onTouchEnd: this.mouseEnter, style: rectBackgroundStyle });
 		}
 	}]);
 
@@ -56,12 +56,12 @@ var Playground = function (_React$Component2) {
 	}
 
 	_createClass(Playground, [{
-		key: "getCleanNumber",
+		key: 'getCleanNumber',
 		value: function getCleanNumber(origin) {
 			return parseInt(origin / 100) * 100 - 100;
 		}
 	}, {
-		key: "render",
+		key: 'render',
 		value: function render() {
 			var pgStyle = {
 				width: this.getCleanNumber(document.width),
@@ -72,8 +72,8 @@ var Playground = function (_React$Component2) {
 				Rects.push(React.createElement(Rect, null));
 			}
 			return React.createElement(
-				"div",
-				{ id: "playground", style: pgStyle },
+				'div',
+				{ id: 'playground', style: pgStyle },
 				Rects
 			);
 		}
