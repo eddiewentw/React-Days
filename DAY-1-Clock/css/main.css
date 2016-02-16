@@ -9,17 +9,7 @@ body {
 	width: 100vw;
 	height: 100vh;
 	overflow: hidden;
-}
 
-.now {
-	font-size: 120px;
-	font-weight: bold;
-	margin: 0px auto;
-	letter-spacing: 5px;
-	text-shadow: 0px 1px 0px white, 0px -1px 0px white, 1px 0px 0px white, -1px 0px 0px white;
-}
-
-.v-mid {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: -moz-box;
@@ -29,4 +19,12 @@ body {
 	   -moz-align-items: center;
 		-ms-align-items: center;
 			align-items: center;
+}
+
+.now {
+	font-size: 120px;
+	font-weight: bold;
+	margin: 0px auto;
+	letter-spacing: 5px;
+	text-shadow: 0px 1px 0px white, 0px -1px 0px white, 1px 0px 0px white, -1px 0px 0px white;
 }
