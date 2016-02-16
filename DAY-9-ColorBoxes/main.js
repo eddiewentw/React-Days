@@ -16,7 +16,7 @@ var Rect = function (_React$Component) {
 
 		var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Rect).call(this));
 
-		_this.mouseEnter = _this.mouseEnter.bind(_this); // cool
+		_this._mouseEnter = _this._mouseEnter.bind(_this); // cool
 		_this.state = {
 			rr: 0, gg: 0, aa: 0
 		};
@@ -24,22 +24,22 @@ var Rect = function (_React$Component) {
 	}
 
 	_createClass(Rect, [{
-		key: 'randomColor',
-		value: function randomColor() {
+		key: '_randomColor',
+		value: function _randomColor() {
 			return parseInt(Math.random() * 255);
 		}
 	}, {
-		key: 'mouseEnter',
-		value: function mouseEnter() {
+		key: '_mouseEnter',
+		value: function _mouseEnter() {
 			this.setState({
-				rr: this.randomColor(), gg: this.randomColor(), aa: this.randomColor()
+				rr: this._randomColor(), gg: this._randomColor(), aa: this._randomColor()
 			});
 		}
 	}, {
 		key: 'render',
 		value: function render() {
 			var rectBackgroundStyle = { backgroundColor: 'rgb( ' + this.state.rr + ', ' + this.state.gg + ', ' + this.state.aa + ' )' };
-			return React.createElement('div', { className: 'rect', onMouseEnter: this.mouseEnter, onTouchEnd: this.mouseEnter, style: rectBackgroundStyle });
+			return React.createElement('div', { className: 'rect', onMouseEnter: this._mouseEnter, onTouchEnd: this._mouseEnter, style: rectBackgroundStyle });
 		}
 	}]);
 
@@ -56,16 +56,16 @@ var Playground = function (_React$Component2) {
 	}
 
 	_createClass(Playground, [{
-		key: 'getCleanNumber',
-		value: function getCleanNumber(origin) {
+		key: '_getCleanNumber',
+		value: function _getCleanNumber(origin) {
 			return parseInt(origin / 100) * 100 - 100;
 		}
 	}, {
 		key: 'render',
 		value: function render() {
 			var pgStyle = {
-				width: this.getCleanNumber(document.width),
-				height: this.getCleanNumber(document.height)
+				width: this._getCleanNumber(document.width),
+				height: this._getCleanNumber(document.height)
 			};
 			var Rects = [];
 			for (var i = 0; i < pgStyle.width / 100 * pgStyle.height / 100; i++) {
