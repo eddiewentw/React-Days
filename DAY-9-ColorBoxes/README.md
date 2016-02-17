@@ -8,5 +8,5 @@ http://github.eddiewen.me/React-Days/DAY-9-ColorBoxes/
 
 Idea from "[180 websites](http://jenniferdewalt.com)"
 
-technicolor\_boxes<br/>
+technicolor\_boxes  
 <http://jenniferdewalt.com/technicolor_boxes.html>
