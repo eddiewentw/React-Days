@@ -39,7 +39,7 @@ class Number extends React.Component {
 	}
 
 	handleClass() {
-		return 'num'+this.state.numClass;
+		return `num${this.state.numClass}`;
 	}
 
 	render() {
