@@ -55,3 +55,8 @@ React.js 練習記錄
 ###Day-10 React Scroll
 練習 scroll event，動畫依舊是最愛的 [Animate.css](http://daneden.github.io/animate.css/)  
 <http://github.eddiewen.me/React-Days/DAY-10-Scroll/>
+
+###Day-11 Jumping Number
+會跳動的數字  
+可以在 Component 上設定數字最大值及Interval  
+<http://github.eddiewen.me/React-Days/DAY-11-JumpingNumber/>
