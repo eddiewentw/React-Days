@@ -3,7 +3,7 @@ var babel = require('gulp-babel');
 var replaceHTML = require('gulp-html-replace');
 var rename = require('gulp-rename');
 
-var targetDAY = 'DAY-10-Scroll/';
+var targetDAY = 'DAY-11-JumpingNumber/';
 
 gulp.task( 'default', ['babel', 'html'] );
 
