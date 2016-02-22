@@ -5,3 +5,55 @@ body {
 	padding: 0px;
 	font-family: 'Helvetica Neue';
 }
+
+#container {
+	text-align: center;
+}
+
+input {
+	width: 400px;
+	height: 26px;
+	margin: 0px auto;
+	padding: 5px 10px;
+	font-size: 16px;
+	line-height: 26px;
+	border: 1px solid #C9C9C9;
+}
+
+input:focus {
+	border: 1px solid #4D90FE;
+	outline: none;
+	outline-offset: 0px;
+}
+
+.box {
+	display: inline-block;
+	height: 38px;
+	margin-top: 200px;
+	position: relative;
+}
+
+.menu {
+	width: 410px;
+	max-height: 180px;
+	border: 1px solid #F4F4F4;
+	text-align: left;
+	overflow: scroll;
+	position: absolute;
+	top: 38px;
+	left: 0px;
+}
+
+.option {
+	padding: 10px 15px;
+	border-bottom: 1px solid #F4F4F4;
+	cursor: pointer;
+}
+
+.option:hover {
+	background-color: #dcdcdc
+}
+
+.data {
+	margin-top: 300px;
+}
