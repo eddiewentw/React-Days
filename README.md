@@ -61,6 +61,6 @@ React.js 練習記錄
 可以在 Component 上設定數字最大值及Interval  
 <http://github.eddiewen.me/React-Days/DAY-11-JumpingNumber/>
 
-## Day-12 City
+### Day-12 City
 簡易的世界城市搜尋功能  
 <http://github.eddiewen.me/React-Days/DAY-12-City/>
