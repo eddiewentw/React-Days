@@ -64,3 +64,7 @@ React.js 練習記錄
 ### Day-12 City
 簡易的世界城市搜尋功能  
 <http://github.eddiewen.me/React-Days/DAY-12-City/>
+
+### Day-13 Subscribe
+[Derek's Subscribe](https://dribbble.com/shots/2359423-Daily-UI-026-Subscribe) in React.js  
+<http://github.eddiewen.me/React-Days/DAY-13-Subscribe/>
