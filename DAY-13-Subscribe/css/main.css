@@ -1,0 +1,146 @@
+body {
+	width: 100%;
+	height: 100vh;
+	margin: 0px;
+	padding: 0px;
+	background-repeat: repeat-x;
+	background: -webkit-linear-gradient(top, #639EDB, #0668cf);
+	background: -moz-linear-gradient(top, #639EDB, #0668cf);
+	background: -ms-linear-gradient(top, #639EDB, #0668cf);
+	background: -o-linear-gradient(top, #639EDB, #0668cf);
+}
+
+.mid {
+	margin: 0px auto;
+}
+
+.v-mid {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: -moz-box;
+	display: flex;
+
+	-webkit-align-items: center;
+	   -moz-align-items: center;
+		-ms-align-items: center;
+			align-items: center;
+}
+
+#subscribe {
+	width: 540px;
+	padding: 37px 20px 13px;
+	color: white;
+	background-color: #065CB7;
+	border-radius: 7px;
+	font-family: 'Open Sans';
+	font-size: 20px;
+	line-height: 20px;
+	letter-spacing: 1px;
+	position: relative;
+	cursor: text;
+}
+
+#subscribe.focused {
+	background-color: #044F9E;
+}
+
+#subscribe:before {
+	content: 'Email Address';
+	width: 180px;
+	height: 20px;
+	font-size: 22px;
+	color: white;
+	position: absolute;
+	top: 34px;
+	left: 20px;
+
+	-webkit-transition: all .5s;
+	   -moz-transition: all .5s;
+		 -o-transition: all .5s;
+			transition: all .5s;
+}
+
+#subscribe.focused:before {
+	font-size: 15px;
+	color: #5795D5;
+	top: 15px;
+}
+
+#subscribe .btn {
+	width: 120px;
+	height: 100%;
+	color: #044F9E;
+	background-color: #065CB7;
+	border-radius: 7px;
+	cursor: auto;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	opacity: 0;
+	overflow: hidden;
+
+	-webkit-transition: all .5s;
+	   -moz-transition: all .5s;
+		 -o-transition: all .5s;
+			transition: all .5s;
+}
+
+#subscribe.focused .btn {
+	opacity: 1;
+}
+
+#subscribe .btn.clickable {
+	color: white;
+	background-color: #639EDB;
+	cursor: pointer;
+}
+
+#subscribe .btn.clickable:hover {
+	background-color: #5C94CD;
+}
+
+#subscribe .btn.clicked {
+	width: 100%;
+	color: white;
+	background-color: #639EDB;
+	opacity: 1;
+}
+
+#subscribe .btn:before {
+	content: 'OK';
+	width: 1px;
+	height: 1px;
+	font-weight: bold;
+	line-height: 17px;
+	margin-top: 10px;
+	position: absolute;
+	top: 25px;
+	left: 45px;
+}
+
+#subscribe .btn.clicked:before {
+	content: 'THANKS! CHECK YOUR EMAIL.';
+	width: 320px;
+	left: 140px;
+}
+
+input {
+	width: 300px;
+	border: none;
+	color: white;
+	background-color: transparent;
+	font-family: 'Open Sans';
+	font-size: 20px;
+	line-height: 20px;
+	letter-spacing: 1px;
+	opacity: 0;
+}
+
+#subscribe.focused input {
+	opacity: 1;
+}
+
+input:focus {
+	outline: none;
+}
+
