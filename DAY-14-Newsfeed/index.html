@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<meta name="description" content="Prakhar's Newsfeed" />
+	<meta name="author" content="Designed by Prakhar Neel Sharma, coded by Eddie" />
+	<meta name="URL" content="http://github.eddiewen.me/React-Days/DAY-14-Newsfeed/" />
+	<meta name="image" content="https://facebook.github.io/react/img/logo_og.png" />
+
+	<!-- Open Graph -->
+	<meta property="og:site_name" content="React Newsfeed" />
+	<meta property="og:title" content="React Newsfeed" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="http://github.eddiewen.me/React-Days/DAY-14-Newsfeed/" />
+	<meta property="og:image" content="https://facebook.github.io/react/img/logo_og.png" />
+	<meta property="og:description" content="Prakhar's Newsfeed" />
+
+	<title>React Newsfeed</title>
+	<link rel="Shortcut Icon" type="image/x-icon" href="https://facebook.github.io/react/img/logo_og.png" />
+
+	<!-- Open Sans -->
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+	<!-- my CSS -->
+	<link rel="stylesheet" href="http://github.eddiewen.me/Implementation/Newsfeed/Prakhar/main.css" />
+
+	<!-- React.js -->
+	<script type="text/javascript" src="../node_modules/react/dist/react.min.js"></script>
+	<script type="text/javascript" src="../node_modules/react-dom/dist/react-dom.min.js"></script>
+	<!-- build:del -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser.min.js"></script>
+	<!-- endbuild -->
+
+</head>
+
+<body>
+
+	<!-- Fixed Header -->
+	<header>
+		<div class="navi icon"></div>
+		<div class="right-group">
+			<div class="icon">
+				<i class="fa fa-search"></i>
+			</div>
+			<div class="icon">
+				<i class="fa fa-bullhorn"></i>
+			</div>
+			<div class="icon">
+				<i class="fa fa-comment"></i>
+			</div>
+			<div class="two-dots icon"></div>
+		</div>
+	</header>
+
+	<!-- Left Drawer -->
+	<div id="drawer" onmouseenter="disableBodyScroll()" onmouseleave="enableBodyScroll()">
+		<div class="self-sticker"></div>
+		<div class="items">
+			<div class="icon active">
+				<i class="fa fa-square"></i>
+			</div>
+			<div class="icon">
+				<i class="fa fa-line-chart"></i>
+			</div>
+			<div class="icon">
+				<i class="fa fa-pie-chart"></i>
+			</div>
+			<div class="icon">
+				<i class="fa fa-inbox"></i>
+			</div>
+			<div class="icon">
+				<i class="fa fa-briefcase"></i>
+			</div>
+			<div class="icon">
+				<i class="fa fa-file-text-o"></i>
+			</div>
+		</div>
+		<div class="setting items">
+			<div class="icon">
+				<i class="fa fa-wrench"></i>
+			</div>
+			<div class="icon">
+				<i class="fa fa-power-off"></i>
+			</div>
+		</div>
+	</div>
+
+	<!-- Main -->
+	<div class="newswall">
+
+		<!-- People's Posts -->
+		<div id="posts">
+			<div class="column left">
+				<div id="input" class="post">
+					<textarea placeholder="Write Something..." onkeyup="auto_grow(this)"></textarea>
+					<div class="tool-bar">
+						<div class="icon">
+							<i class="fa fa-picture-o"></i>
+						</div>
+						<div class="icon">
+							<i class="fa fa-video-camera"></i>
+						</div>
+						<div class="icon">
+							<i class="fa fa-map-marker"></i>
+						</div>
+						<div class="share-btn">Share</div>
+					</div>
+				</div>
+				<div class="post">
+					<div class="owner">
+						<div class="sticker">
+							<img src="images/sticker/sticker-1.png" />
+						</div>
+						<div class="info">
+							<h4>Jayda Pollock</h4>
+							<div class="job">Designer</div>
+						</div>
+						<div class="time">8 hours</div>
+					</div>
+					<div class="content">
+						<div class="text">
+							Happy to get a row in fashion design by Twin Brothers
+						</div>
+					</div>
+					<div class="action-bar">
+						<div class="action like">
+							<i class="fa fa-thumbs-up"></i>
+							<div class="num">10</div>
+						</div>
+						<div class="action comment">
+							<i class="fa fa-comment"></i>
+							<div class="num">01</div>
+						</div>
+						<div class="action share">
+							<i class="fa fa-share-alt"></i>
+							<div class="num">01</div>
+						</div>
+					</div>
+					<div class="add-comment">Add Comment</div>
+				</div>
+				<div class="post">
+					<div class="owner">
+						<div class="sticker">
+							<img src="images/sticker/sticker-3.png" />
+						</div>
+						<div class="info">
+							<h4>April</h4>
+							<div class="job">Photographer</div>
+						</div>
+						<div class="time">18 hours</div>
+					</div>
+					<div class="content">
+						<div class="picture">
+							<img src="images/posted/Chelsea-Francis.png" />
+						</div>
+					</div>
+					<div class="action-bar">
+						<div class="action like">
+							<i class="fa fa-thumbs-up"></i>
+							<div class="num">15</div>
+						</div>
+						<div class="action comment">
+							<i class="fa fa-comment"></i>
+							<div class="num">03</div>
+						</div>
+						<div class="action share">
+							<i class="fa fa-share-alt"></i>
+							<div class="num">03</div>
+						</div>
+					</div>
+					<div class="add-comment">Add Comment</div>
+				</div>
+			</div><div class="column right">
+				<div class="post">
+					<div class="owner">
+						<div class="sticker">
+							<img src="images/sticker/sticker-2.png" />
+						</div>
+						<div class="info">
+							<h4>Tahila Ntini</h4>
+							<div class="job">Nature Lover</div>
+						</div>
+						<div class="time">5 hours</div>
+					</div>
+					<div class="content">
+						<div class="picture">
+							<img src="images/posted/Adam-Przewoski.png" />
+						</div>
+					</div>
+					<div class="action-bar">
+						<div class="action like">
+							<i class="fa fa-thumbs-up"></i>
+							<div class="num">26</div>
+						</div>
+						<div class="action comment">
+							<i class="fa fa-comment"></i>
+							<div class="num">05</div>
+						</div>
+						<div class="action share">
+							<i class="fa fa-share-alt"></i>
+							<div class="num">01</div>
+						</div>
+					</div>
+					<div class="add-comment">Add Comment</div>
+				</div>
+				<div class="post">
+					<div class="owner">
+						<div class="sticker">
+							<img src="images/sticker/sticker-4.png" />
+						</div>
+						<div class="info">
+							<h4>Winter Martin</h4>
+							<div class="job">Teacher</div>
+						</div>
+						<div class="time">12 hours</div>
+					</div>
+					<div class="content">
+						<div class="text">
+							Get a perfect weekend holidays 3 in a row to be with family, friends and my sweet little puppy
+						</div>
+					</div>
+					<div class="action-bar">
+						<div class="action like">
+							<i class="fa fa-thumbs-up"></i>
+							<div class="num">14</div>
+						</div>
+						<div class="action comment">
+							<i class="fa fa-comment"></i>
+							<div class="num">03</div>
+						</div>
+						<div class="action share">
+							<i class="fa fa-share-alt"></i>
+							<div class="num">02</div>
+						</div>
+					</div>
+					<div class="add-comment">Add Comment</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Recent Activities -->
+		<div id="recent">
+			<h4>Recent
+				<i class="fa fa-history"></i>
+			</h4>
+			<div class="row">
+				<h4>Just Now</h4>
+				<span>You are now following Neel Litoriy with 3 friends common</span>
+			</div>
+			<div class="row">
+				<h4>Today</h4>
+				<span>Make deep friendship with Adam, Neelessh and Bruce</span>
+			</div>
+			<div class="row">
+				<h4>Yesterday</h4>
+				<span>You watched a mode The Hateful Eight with Sonam</span>
+			</div>
+			<div class="row">
+				<h4>31 January</h4>
+				<span>Spent time with Neelesshm Nitin and Mukesh</span>
+			</div>
+			<div class="row">
+				<h4>30 January</h4>
+				<span>Started following Rachel Dos and posted a photo</span>
+			</div>
+			<div class="row">
+				<h4>29 January</h4>
+				<span>Went to School with John, Kelly and make 5 friends in common</span>
+			</div>
+		</div>
+
+	</div>
+
+<script type="text/javascript">
+function auto_grow(element) {
+	element.style.height = "5px";
+	element.style.height = (element.scrollHeight)+"px";
+}
+
+function disableBodyScroll() {
+	document.body.style.overflow = 'hidden';
+}
+
+function enableBodyScroll() {
+	document.body.style.overflow = 'auto';
+}
+</script>
+
+<!-- build:js -->
+	<script type="text/babel" src="main.jsx"></script>
+<!-- endbuild -->
+
+</body>
+
+</html>
+
