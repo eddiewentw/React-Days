@@ -12,7 +12,7 @@ class PostArea extends React.Component {
 
 	render() {
 		return (
-			<textarea style={this.state} placeholder="Write Something..." onChange={this.handleAreaHeight} />
+			<textarea style={this.state} placeholder="Write Something..." onKeyUp={this.handleAreaHeight} onChange={this.props.onChange} />
 		);
 	}
 
@@ -20,10 +20,20 @@ class PostArea extends React.Component {
 
 class PostBox extends React.Component {
 
+	constructor() {
+		super();
+		this.state = { content: '' };
+		this.handleTextareaChange = this.handleTextareaChange.bind(this);
+	}
+
+	handleTextareaChange(event) {
+		this.setState({ content: event.target.value });
+	}
+
 	render() {
 		return (
 			<div id="input" className="post">
-				<PostArea />
+				<PostArea onChange={this.handleTextareaChange} />
 				<div className="tool-bar">
 					<div className="icon">
 						<i className="fa fa-picture-o"></i>
