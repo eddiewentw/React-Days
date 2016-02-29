@@ -1,24 +1,54 @@
+class PostArea extends React.Component {
+
+	constructor() {
+		super();
+		this.state = { height: '75px' };
+		this.handleAreaHeight = this.handleAreaHeight.bind(this);
+	}
+
+	handleAreaHeight(event) {
+		this.setState({ height: event.target.scrollHeight + 'px' });
+	}
+
+	render() {
+		return (
+			<textarea style={this.state} placeholder="Write Something..." onChange={this.handleAreaHeight} />
+		);
+	}
+
+}
+
+class PostBox extends React.Component {
+
+	render() {
+		return (
+			<div id="input" className="post">
+				<PostArea />
+				<div className="tool-bar">
+					<div className="icon">
+						<i className="fa fa-picture-o"></i>
+					</div>
+					<div className="icon">
+						<i className="fa fa-video-camera"></i>
+					</div>
+					<div className="icon">
+						<i className="fa fa-map-marker"></i>
+					</div>
+					<div className="share-btn">Share</div>
+				</div>
+			</div>
+		);
+	}
+
+}
+
 class Posts extends React.Component {
 
 	render() {
 		return (
 			<div id="posts">
 				<div className="column left">
-					<div id="input" className="post">
-						<textarea placeholder="Write Something..." onkeyup="auto_grow(this)"></textarea>
-						<div className="tool-bar">
-							<div className="icon">
-								<i className="fa fa-picture-o"></i>
-							</div>
-							<div className="icon">
-								<i className="fa fa-video-camera"></i>
-							</div>
-							<div className="icon">
-								<i className="fa fa-map-marker"></i>
-							</div>
-							<div className="share-btn">Share</div>
-						</div>
-					</div>
+					<PostBox />
 					<div className="post">
 						<div className="owner">
 							<div className="sticker">
@@ -156,5 +186,5 @@ class Posts extends React.Component {
 }
 
 ReactDOM.render(
-	<Posts />, document.getElementById('react-container')
+	<Posts user="Eddie" />, document.getElementById('react-container')
 );
