@@ -1,13 +1,9 @@
 class PostArea extends React.Component {
 
-	constructor() {
-		super();
-		this.state = { height: '75px' };
-		this.handleAreaHeight = this.handleAreaHeight.bind(this);
-	}
-
 	handleAreaHeight(event) {
-		this.setState({ height: event.target.scrollHeight + 'px' });
+		let element = event.target;
+		element.style.height = '5px';
+		element.style.height = element.scrollHeight+'px';
 	}
 
 	render() {
