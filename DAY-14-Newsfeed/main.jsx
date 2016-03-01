@@ -51,73 +51,62 @@ class PostBox extends React.Component {
 class LeftColumn extends React.Component {
 
 	render() {
+		let postArray = [];
+		if( this.props.data.length > 0 ) {
+			postArray = this.props.data.map( (data, index) => {
+				if( index%2 == 1 ) {
+					let postContent = [];
+					postContent.push(
+						<div className="text">
+							{data.get('content')}
+						</div>
+					);
+					if( data.get('image') != undefined ) {
+						postContent.push(
+							<div className="picture">
+								<img src={`images/posted/${data.get('image')}.png`} />
+							</div>
+						);
+					}
+					return (
+						<div className="post">
+							<div className="owner">
+								<div className="sticker">
+									<img src={`images/sticker/${data.get('user')}.png`} />
+								</div>
+								<div className="info">
+									<h4>{data.get('user')}</h4>
+									<div className="job">{data.get('job')}</div>
+								</div>
+								<div className="time">{data.get('timer')} hours</div>
+							</div>
+							<div className="content">
+								{postContent}
+							</div>
+							<div className="action-bar">
+								<div className="action like">
+									<i className="fa fa-thumbs-up"></i>
+									<div className="num">{data.get('like')}</div>
+								</div>
+								<div className="action comment">
+									<i className="fa fa-comment"></i>
+									<div className="num">{data.get('comment')}</div>
+								</div>
+								<div className="action share">
+									<i className="fa fa-share-alt"></i>
+									<div className="num">{data.get('share')}</div>
+								</div>
+							</div>
+							<div className="add-comment">Add Comment</div>
+						</div>
+					);
+				}
+			});
+		}
 		return (
 			<div className="column left">
 				<PostBox />
-				<div className="post">
-					<div className="owner">
-						<div className="sticker">
-							<img src="images/sticker/Jayda Pollock.png" />
-						</div>
-						<div className="info">
-							<h4>Jayda Pollock</h4>
-							<div className="job">Designer</div>
-						</div>
-						<div className="time">8 hours</div>
-					</div>
-					<div className="content">
-						<div className="text">
-							Happy to get a row in fashion design by Twin Brothers
-						</div>
-					</div>
-					<div className="action-bar">
-						<div className="action like">
-							<i className="fa fa-thumbs-up"></i>
-							<div className="num">10</div>
-						</div>
-						<div className="action comment">
-							<i className="fa fa-comment"></i>
-							<div className="num">01</div>
-						</div>
-						<div className="action share">
-							<i className="fa fa-share-alt"></i>
-							<div className="num">01</div>
-						</div>
-					</div>
-					<div className="add-comment">Add Comment</div>
-				</div>
-				<div className="post">
-					<div className="owner">
-						<div className="sticker">
-							<img src="images/sticker/April.png" />
-						</div>
-						<div className="info">
-							<h4>April</h4>
-							<div className="job">Photographer</div>
-						</div>
-						<div className="time">18 hours</div>
-					</div>
-					<div className="content">
-						<div className="picture">
-							<img src="images/posted/Chelsea-Francis.png" />
-						</div>
-					</div>
-					<div className="action-bar">
-						<div className="action like">
-							<i className="fa fa-thumbs-up"></i>
-							<div className="num">15</div>
-						</div>
-						<div className="action comment">
-							<i className="fa fa-comment"></i>
-							<div className="num">03</div>
-						</div>
-						<div className="action share">
-							<i className="fa fa-share-alt"></i>
-							<div className="num">03</div>
-						</div>
-					</div>
-					<div className="add-comment">Add Comment</div>
-				</div>
+				{postArray}
 			</div>
 		);
 	}
