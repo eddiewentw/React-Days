@@ -40,7 +40,7 @@ class PostBox extends React.Component {
 
 		newFeed.save(null, {
 			success: (feed) => {
-				alert(`New object created with objectId: ${feed.id}`);
+				this.props.loadDataMethod();
 			},
 			error: (feed, error) => {
 				alert(`Failed to create new object, with error code: ${error.message}`);
@@ -127,7 +127,7 @@ class LeftColumn extends React.Component {
 		}
 		return (
 			<div className="column left">
-				<PostBox user={this.props.user} />
+				<PostBox loadDataMethod={this.props.loadDataMethod} user={this.props.user} />
 				{postArray}
 			</div>
 		);
@@ -205,10 +205,16 @@ class Posts extends React.Component {
 		super();
 		this.state = { data: [] };
 
+		this.loadDataFromParse = this.loadDataFromParse.bind(this);
+		this.loadDataFromParse();
+	}
+
+	loadDataFromParse() {
 		let Newsfeed = Parse.Object.extend('Newsfeed_Prakhar');
 		let query  = new Parse.Query(Newsfeed);
 			query.notEqualTo('user', '');
 			query.descending('createdAt');
+
 		query.find({
 			success: (results) => {
 				this.setState({ data: results });
@@ -222,7 +228,7 @@ class Posts extends React.Component {
 	render() {
 		return (
 			<div id="posts">
-				<LeftColumn user={this.props.user} data={this.state.data} /><RightColumn data={this.state.data} />
+				<LeftColumn loadDataMethod={this.loadDataFromParse} user={this.props.user} data={this.state.data} /><RightColumn data={this.state.data} />
 			</div>
 		);
 	}
@@ -230,7 +236,7 @@ class Posts extends React.Component {
 }
 
 Parse.initialize("Y5Y5GWiu9OoS9hTAUUAXO6gJrM7Hdxf4uLapfpK6", "c4PlOlsrUoDxTT55AxALHRrNoEiLPf23o7SltcaT");
-let userInfo = {
+const userInfo = {
 	name: 'Eddie Wen',
 	job: 'Developer'
 }
