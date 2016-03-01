@@ -1,3 +1,5 @@
+Parse.initialize("Y5Y5GWiu9OoS9hTAUUAXO6gJrM7Hdxf4uLapfpK6", "c4PlOlsrUoDxTT55AxALHRrNoEiLPf23o7SltcaT");
+
 class PostArea extends React.Component {
 
 	handleAreaHeight(event) {
@@ -20,6 +22,7 @@ class PostBox extends React.Component {
 		super();
 		this.state = { content: '' };
 		this.handleTextareaChange = this.handleTextareaChange.bind(this);
+		this.handlePost = this.handlePost.bind(this);
 	}
 
 	handleTextareaChange(event) {
@@ -27,7 +30,24 @@ class PostBox extends React.Component {
 	}
 
 	handlePost() {
+		let Newsfeed = Parse.Object.extend('Newsfeed_Prakhar');
+		let newFeed = new Newsfeed();
+			newFeed.set('user', this.props.user.name);
+			newFeed.set('job', this.props.user.job);
+			newFeed.set('like', 0);
+			newFeed.set('comment', 0);
+			newFeed.set('share', 0);
+			newFeed.set('content', this.state.content);
+			newFeed.set('timer', 'Just now');
 
+		newFeed.save(null, {
+			success: (feed) => {
+				alert(`New object created with objectId: ${feed.id}`);
+			},
+			error: (feed, error) => {
+				alert(`Failed to create new object, with error code: ${error.message}`);
+			}
+		});
 	}
 
 	render() {
@@ -82,7 +102,7 @@ class LeftColumn extends React.Component {
 									<h4>{data.get('user')}</h4>
 									<div className="job">{data.get('job')}</div>
 								</div>
-								<div className="time">{data.get('timer')} hours</div>
+								<div className="time">{data.get('timer')}</div>
 							</div>
 							<div className="content">
 								{postContent}
@@ -109,7 +129,7 @@ class LeftColumn extends React.Component {
 		}
 		return (
 			<div className="column left">
-				<PostBox />
+				<PostBox user={this.props.user} />
 				{postArray}
 			</div>
 		);
@@ -147,7 +167,7 @@ class RightColumn extends React.Component {
 									<h4>{data.get('user')}</h4>
 									<div className="job">{data.get('job')}</div>
 								</div>
-								<div className="time">{`${data.get('timer')} hours`}</div>
+								<div className="time">{data.get('timer')}</div>
 							</div>
 							<div className="content">
 								{postContent}
@@ -187,7 +207,6 @@ class Posts extends React.Component {
 		super();
 		this.state = { data: [] };
 
-		Parse.initialize("Y5Y5GWiu9OoS9hTAUUAXO6gJrM7Hdxf4uLapfpK6", "c4PlOlsrUoDxTT55AxALHRrNoEiLPf23o7SltcaT");
 		let Newsfeed = Parse.Object.extend('Newsfeed_Prakhar');
 		let query  = new Parse.Query(Newsfeed);
 			query.notEqualTo('user', '');
@@ -205,13 +224,16 @@ class Posts extends React.Component {
 	render() {
 		return (
 			<div id="posts">
-				<LeftColumn data={this.state.data} /><RightColumn data={this.state.data} />
+				<LeftColumn user={this.props.user} data={this.state.data} /><RightColumn data={this.state.data} />
 			</div>
 		);
 	}
 
 }
-
+let userInfo = {
+	name: 'Eddie Wen',
+	job: 'Developer'
+}
 ReactDOM.render(
-	<Posts user="Eddie" />, document.getElementById('react-container')
+	<Posts user={userInfo} />, document.getElementById('react-container')
 );
