@@ -189,13 +189,15 @@ class Posts extends React.Component {
 		super();
 		this.state = { data: [] };
 
+		const Newsfeed = Parse.Object.extend('Newsfeed_Prakhar');
+		this.Newsfeed = Newsfeed;
+
 		this.loadDataFromParse();
 		this.savePost = this.savePost.bind(this);
 	}
 
 	loadDataFromParse() {
-		let Newsfeed = Parse.Object.extend('Newsfeed_Prakhar');
-		let query  = new Parse.Query(Newsfeed);
+		let query  = new Parse.Query(this.Newsfeed);
 			query.notEqualTo('user', '');
 			query.descending('createdAt');
 
@@ -210,8 +212,7 @@ class Posts extends React.Component {
 	}
 
 	savePost( content ) {
-		let Newsfeed = Parse.Object.extend('Newsfeed_Prakhar');
-		let newFeed = new Newsfeed();
+		let newFeed = new this.Newsfeed();
 		newFeed.save({
 			user: 		this.props.user.name,
 			job: 		this.props.user.job,
