@@ -1,5 +1,3 @@
-Parse.initialize("Y5Y5GWiu9OoS9hTAUUAXO6gJrM7Hdxf4uLapfpK6", "c4PlOlsrUoDxTT55AxALHRrNoEiLPf23o7SltcaT");
-
 class PostArea extends React.Component {
 
 	handleAreaHeight(event) {
@@ -230,10 +228,13 @@ class Posts extends React.Component {
 	}
 
 }
+
+Parse.initialize("Y5Y5GWiu9OoS9hTAUUAXO6gJrM7Hdxf4uLapfpK6", "c4PlOlsrUoDxTT55AxALHRrNoEiLPf23o7SltcaT");
 let userInfo = {
 	name: 'Eddie Wen',
 	job: 'Developer'
 }
+
 ReactDOM.render(
 	<Posts user={userInfo} />, document.getElementById('react-container')
 );
