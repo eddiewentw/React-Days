@@ -1,7 +1,5 @@
 ## React Subscribe
 
-
-
 [Derek's Subscribe](https://dribbble.com/shots/2359423-Daily-UI-026-Subscribe) in React.js
 
 <http://github.eddiewen.me/React-Days/DAY-13-Subscribe/>
