@@ -2,12 +2,17 @@ var gulp = require('gulp');
 var babel = require('gulp-babel');
 var replaceHTML = require('gulp-html-replace');
 var rename = require('gulp-rename');
+var connect = require('gulp-connect');
 
 var targetDAY = 'DAY-13-Subscribe/';
 
 gulp.task( 'default', ['babel', 'html'] );
 
-gulp.task( 'babel', function(){
+gulp.task( 'server', function() {
+	connect.server();
+});
+
+gulp.task( 'babel', function() {
 	return gulp.src( targetDAY+'main.jsx' )
 		.pipe( babel({
 			presets: ['es2015', 'react']
@@ -16,7 +21,7 @@ gulp.task( 'babel', function(){
 		.pipe( gulp.dest( targetDAY ) );
 });
 
-gulp.task( 'html', function(){
+gulp.task( 'html', function() {
 	// Just copy original file
 	gulp.src( targetDAY+'index.html' )
 		.pipe( rename('_index.html') )
