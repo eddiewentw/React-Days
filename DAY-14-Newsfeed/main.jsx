@@ -19,33 +19,17 @@ class PostBox extends React.Component {
 	constructor() {
 		super();
 		this.state = { content: '' };
+
 		this.handleTextareaChange = this.handleTextareaChange.bind(this);
-		this.handlePost = this.handlePost.bind(this);
+		this.handleSaveBtnClick = this.handleSaveBtnClick.bind(this);
 	}
 
 	handleTextareaChange(event) {
 		this.setState({ content: event.target.value });
 	}
 
-	handlePost() {
-		let Newsfeed = Parse.Object.extend('Newsfeed_Prakhar');
-		let newFeed = new Newsfeed();
-			newFeed.set('user', this.props.user.name);
-			newFeed.set('job', this.props.user.job);
-			newFeed.set('like', 0);
-			newFeed.set('comment', 0);
-			newFeed.set('share', 0);
-			newFeed.set('content', this.state.content);
-			newFeed.set('timer', 'Just now');
-
-		newFeed.save(null, {
-			success: (feed) => {
-				this.props.loadDataMethod();
-			},
-			error: (feed, error) => {
-				alert(`Failed to create new object, with error code: ${error.message}`);
-			}
-		});
+	handleSaveBtnClick() {
+		this.props.savePostMethod(this.state.content);
 	}
 
 	render() {
@@ -62,7 +46,7 @@ class PostBox extends React.Component {
 					<div className="icon">
 						<i className="fa fa-map-marker"></i>
 					</div>
-					<div className="share-btn" onClick={this.handlePost}>Share</div>
+					<div className="share-btn" onClick={this.handleSaveBtnClick}>Share</div>
 				</div>
 			</div>
 		);
@@ -127,7 +111,7 @@ class LeftColumn extends React.Component {
 		}
 		return (
 			<div className="column left">
-				<PostBox loadDataMethod={this.props.loadDataMethod} user={this.props.user} />
+				<PostBox savePostMethod={this.props.savePostMethod} user={this.props.user} />
 				{postArray}
 			</div>
 		);
@@ -205,8 +189,8 @@ class Posts extends React.Component {
 		super();
 		this.state = { data: [] };
 
-		this.loadDataFromParse = this.loadDataFromParse.bind(this);
 		this.loadDataFromParse();
+		this.savePost = this.savePost.bind(this);
 	}
 
 	loadDataFromParse() {
@@ -225,10 +209,33 @@ class Posts extends React.Component {
 		});
 	}
 
+	savePost( content ) {
+		let Newsfeed = Parse.Object.extend('Newsfeed_Prakhar');
+		let newFeed = new Newsfeed();
+		newFeed.save({
+			user: 		this.props.user.name,
+			job: 		this.props.user.job,
+			like: 		0,
+			comment: 	0,
+			share: 		0,
+			content: 	content,
+			timer: 		'Just now',
+		}, {
+			success: (feed) => {
+				let newData = this.state.data;
+					newData.splice(0,0,feed);
+				this.setState({ data: newData });
+			},
+			error: (feed, error) => {
+				alert(`Failed to create new object, with error code: ${error.message}`);
+			}
+		});
+	}
+
 	render() {
 		return (
 			<div id="posts">
-				<LeftColumn loadDataMethod={this.loadDataFromParse} user={this.props.user} data={this.state.data} /><RightColumn data={this.state.data} />
+				<LeftColumn savePostMethod={this.savePost} user={this.props.user} data={this.state.data} /><RightColumn data={this.state.data} />
 			</div>
 		);
 	}
