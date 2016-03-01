@@ -69,7 +69,7 @@ class LeftColumn extends React.Component {
 						);
 					}
 					return (
-						<div className="post">
+						<div className="post" key={index}>
 							<div className="owner">
 								<div className="sticker">
 									<img src={`images/sticker/${data.get('user')}.png`} />
@@ -134,7 +134,7 @@ class RightColumn extends React.Component {
 						);
 					}
 					return (
-						<div className="post">
+						<div className="post" key={index}>
 							<div className="owner">
 								<div className="sticker">
 									<img src={`images/sticker/${data.get('user')}.png`} />
@@ -143,7 +143,7 @@ class RightColumn extends React.Component {
 									<h4>{data.get('user')}</h4>
 									<div className="job">{data.get('job')}</div>
 								</div>
-								<div className="time">{data.get('timer')} hours</div>
+								<div className="time">{`${data.get('timer')} hours`}</div>
 							</div>
 							<div className="content">
 								{postContent}
