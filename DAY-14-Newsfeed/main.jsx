@@ -26,6 +26,10 @@ class PostBox extends React.Component {
 		this.setState({ content: event.target.value });
 	}
 
+	handlePost() {
+
+	}
+
 	render() {
 		return (
 			<div id="input" className="post">
@@ -40,7 +44,7 @@ class PostBox extends React.Component {
 					<div className="icon">
 						<i className="fa fa-map-marker"></i>
 					</div>
-					<div className="share-btn">Share</div>
+					<div className="share-btn" onClick={this.handlePost}>Share</div>
 				</div>
 			</div>
 		);
