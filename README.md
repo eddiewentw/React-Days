@@ -67,8 +67,10 @@ React.js 練習記錄
 
 ### Day-13 Subscribe
 [Derek's Subscribe](https://dribbble.com/shots/2359423-Daily-UI-026-Subscribe) in React.js  
+[....more](https://github.com/EddieWen-Taiwan/React-Days/tree/gh-pages/DAY-13-Subscribe)  
 <http://github.eddiewen.me/React-Days/DAY-13-Subscribe/>
 
 ### Day-14 Newsfeed
 [Prakhar's Feed Screen](https://dribbble.com/shots/2497528-Feed-screen-for-Spare-Pixels) in React.js  
+[....more](https://github.com/EddieWen-Taiwan/React-Days/tree/gh-pages/DAY-14-Newsfeed)  
 <http://github.eddiewen.me/React-Days/DAY-14-Newsfeed/>
