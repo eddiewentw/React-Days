@@ -54,58 +54,69 @@ class PostBox extends React.Component {
 
 }
 
+class Post extends React.Component {
+
+	render() {
+		let data = this.props.postData;
+		let postContent = [];
+		// Push text element
+		postContent.push(
+			<div className="text">
+				{data.get('content')}
+			</div>
+		);
+		// If there is image file, push it
+		if( data.get('image') != undefined ) {
+			postContent.push(
+				<div className="picture">
+					<img src={`images/posted/${data.get('image')}.png`} />
+				</div>
+			);
+		}
+		return (
+			<div className="post" key={data._objCount}>
+				<div className="owner">
+					<div className="sticker">
+						<img src={`images/sticker/${data.get('user')}.png`} />
+					</div>
+					<div className="info">
+						<h4>{data.get('user')}</h4>
+						<div className="job">{data.get('job')}</div>
+					</div>
+					<div className="time">{data.get('timer')}</div>
+				</div>
+				<div className="content">
+					{postContent}
+				</div>
+				<div className="action-bar">
+					<div className="action like">
+						<i className="fa fa-thumbs-up"></i>
+						<div className="num">{data.get('like')}</div>
+					</div>
+					<div className="action comment">
+						<i className="fa fa-comment"></i>
+						<div className="num">{data.get('comment')}</div>
+					</div>
+					<div className="action share">
+						<i className="fa fa-share-alt"></i>
+						<div className="num">{data.get('share')}</div>
+					</div>
+				</div>
+				<div className="add-comment">Add Comment</div>
+			</div>
+		);
+	}
+
+}
+
 class LeftColumn extends React.Component {
 
 	render() {
 		let postArray = [];
 		if( this.props.data.length > 0 ) {
-			postArray = this.props.data.map( (data, index) => {
-				if( index%2 == 1 ) {
-					let postContent = [];
-					postContent.push(
-						<div className="text">
-							{data.get('content')}
-						</div>
-					);
-					if( data.get('image') != undefined ) {
-						postContent.push(
-							<div className="picture">
-								<img src={`images/posted/${data.get('image')}.png`} />
-							</div>
-						);
-					}
-					return (
-						<div className="post" key={index}>
-							<div className="owner">
-								<div className="sticker">
-									<img src={`images/sticker/${data.get('user')}.png`} />
-								</div>
-								<div className="info">
-									<h4>{data.get('user')}</h4>
-									<div className="job">{data.get('job')}</div>
-								</div>
-								<div className="time">{data.get('timer')}</div>
-							</div>
-							<div className="content">
-								{postContent}
-							</div>
-							<div className="action-bar">
-								<div className="action like">
-									<i className="fa fa-thumbs-up"></i>
-									<div className="num">{data.get('like')}</div>
-								</div>
-								<div className="action comment">
-									<i className="fa fa-comment"></i>
-									<div className="num">{data.get('comment')}</div>
-								</div>
-								<div className="action share">
-									<i className="fa fa-share-alt"></i>
-									<div className="num">{data.get('share')}</div>
-								</div>
-							</div>
-							<div className="add-comment">Add Comment</div>
-						</div>
-					);
+			postArray = this.props.data.map( (data) => {
+				if( data._objCount%2 == 1 ) {
+					return <Post postData={data} />;
 				}
 			});
 		}
@@ -124,53 +135,9 @@ class RightColumn extends React.Component {
 	render() {
 		let postArray = [];
 		if( this.props.data.length > 0 ) {
-			postArray = this.props.data.map( (data, index) => {
-				if( index%2 == 0 ) {
-					let postContent = [];
-					postContent.push(
-						<div className="text">
-							{data.get('content')}
-						</div>
-					);
-					if( data.get('image') != undefined ) {
-						postContent.push(
-							<div className="picture">
-								<img src={`images/posted/${data.get('image')}.png`} />
-							</div>
-						);
-					}
-					return (
-						<div className="post" key={index}>
-							<div className="owner">
-								<div className="sticker">
-									<img src={`images/sticker/${data.get('user')}.png`} />
-								</div>
-								<div className="info">
-									<h4>{data.get('user')}</h4>
-									<div className="job">{data.get('job')}</div>
-								</div>
-								<div className="time">{data.get('timer')}</div>
-							</div>
-							<div className="content">
-								{postContent}
-							</div>
-							<div className="action-bar">
-								<div className="action like">
-									<i className="fa fa-thumbs-up"></i>
-									<div className="num">{data.get('like')}</div>
-								</div>
-								<div className="action comment">
-									<i className="fa fa-comment"></i>
-									<div className="num">{data.get('comment')}</div>
-								</div>
-								<div className="action share">
-									<i className="fa fa-share-alt"></i>
-									<div className="num">{data.get('share')}</div>
-								</div>
-							</div>
-							<div className="add-comment">Add Comment</div>
-						</div>
-					);
+			postArray = this.props.data.map( (data) => {
+				if( data._objCount%2 == 0 ) {
+					return <Post postData={data} />;
 				}
 			});
 		}
