@@ -137,8 +137,8 @@ class LeftColumn extends React.Component {
 	render() {
 		let postArray = [];
 		if( this.props.data.length > 0 ) {
-			postArray = this.props.data.map( (data) => {
-				if( data._objCount%2 == 1 ) {
+			postArray = this.props.data.map( (data, index) => {
+				if( index%2 == 1 ) {
 					return <Post postData={data} />;
 				}
 			});
@@ -158,8 +158,8 @@ class RightColumn extends React.Component {
 	render() {
 		let postArray = [];
 		if( this.props.data.length > 0 ) {
-			postArray = this.props.data.map( (data) => {
-				if( data._objCount%2 == 0 ) {
+			postArray = this.props.data.map( (data, index) => {
+				if( index%2 == 0 ) {
 					return <Post postData={data} />;
 				}
 			});
