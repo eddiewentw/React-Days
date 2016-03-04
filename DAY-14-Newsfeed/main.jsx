@@ -56,6 +56,29 @@ class PostBox extends React.Component {
 
 class Post extends React.Component {
 
+	constructor() {
+		super();
+		this.state = { LikeNumber: 0 };
+		this._handleLikeClick = this._handleLikeClick.bind(this);
+	}
+
+	componentDidMount() {
+		this.setState({ LikeNumber: this.props.postData.get('like') });
+	}
+
+	_handleLikeClick() {
+		this.setState({ LikeNumber: this.state.LikeNumber+1 });
+
+		const Newsfeed = Parse.Object.extend('Newsfeed_Prakhar');
+		let query = new Parse.Query(Newsfeed);
+		query.get(this.props.postData.id, {
+			success: (post) => {
+				post.set('like', this.state.LikeNumber);
+				post.save();
+			}
+		})
+	}
+
 	render() {
 		let data = this.props.postData;
 		let postContent = [];
@@ -89,9 +112,9 @@ class Post extends React.Component {
 					{postContent}
 				</div>
 				<div className="action-bar">
-					<div className="action like">
+					<div className="action like" onClick={this._handleLikeClick}>
 						<i className="fa fa-thumbs-up"></i>
-						<div className="num">{data.get('like')}</div>
+						<div className="num">{this.state.LikeNumber}</div>
 					</div>
 					<div className="action comment">
 						<i className="fa fa-comment"></i>
@@ -179,8 +202,8 @@ class Newswall extends React.Component {
 	}
 
 	savePost( content ) {
-		let newFeed = new this.Newsfeed();
-		newFeed.save({
+		let newsFeed = new this.Newsfeed();
+		newsFeed.save({
 			user: 		this.props.user.name,
 			job: 		this.props.user.job,
 			like: 		0,
