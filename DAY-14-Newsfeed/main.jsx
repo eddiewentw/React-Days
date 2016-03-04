@@ -183,7 +183,7 @@ class RightColumn extends React.Component {
 
 }
 
-class Posts extends React.Component {
+class Newswall extends React.Component {
 
 	constructor() {
 		super();
@@ -250,5 +250,5 @@ const userInfo = {
 }
 
 ReactDOM.render(
-	<Posts user={userInfo} />, document.getElementById('react-container')
+	<Newswall user={userInfo} />, document.getElementById('react-container')
 );
