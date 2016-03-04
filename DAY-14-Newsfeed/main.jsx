@@ -66,6 +66,12 @@ class Post extends React.Component {
 		this.setState({ LikeNumber: this.props.postData.get('like') });
 	}
 
+	componentDidUpdate() {
+		if( this.state.LikeNumber != this.props.postData.get('like') ) {
+			this.setState({ LikeNumber: this.props.postData.get('like') });
+		}
+	}
+
 	_handleLikeClick() {
 		this.setState({ LikeNumber: this.state.LikeNumber+1 });
 
