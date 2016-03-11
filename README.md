@@ -23,6 +23,7 @@ React.js 練習記錄
 
 ### Day-4 ExchangeUSD
 台幣與美金換算的小工具  
+[....more](https://github.com/EddieWen-Taiwan/React-Days/tree/gh-pages/DAY-4-ExchangeUSD)  
 <http://github.eddiewen.me/React-Days/DAY-4-ExchangeUSD/>
 
 ### Day-5 Tab
@@ -44,12 +45,12 @@ React.js 練習記錄
 <http://github.eddiewen.me/React-Days/DAY-8-Timer/>
 
 ----
-####:ghost: 開始嘗試 ES2015 並加入 Gulp
+####:ghost: 開始嘗試 ES2015
 ----
 
 ### Day-9 ColorBoxes
 滑鼠移過後會在 div 產生隨機顏色  
-[...更多內容](https://github.com/EddieWen-Taiwan/React-Days/tree/gh-pages/DAY-9-ColorBoxes)  
+[...more](https://github.com/EddieWen-Taiwan/React-Days/tree/gh-pages/DAY-9-ColorBoxes)  
 <http://github.eddiewen.me/React-Days/DAY-9-ColorBoxes/>
 
 ### Day-10 React Scroll
