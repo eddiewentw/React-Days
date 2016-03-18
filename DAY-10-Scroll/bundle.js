@@ -42,11 +42,15 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _Test = __webpack_require__(1);
+
+	var _Ending = __webpack_require__(2);
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -59,7 +63,53 @@
 		return React.createElement('div', { className: 'space' });
 	};
 
-	var Test = function (_React$Component) {
+	var All = function (_React$Component) {
+		_inherits(All, _React$Component);
+
+		function All() {
+			_classCallCheck(this, All);
+
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(All).apply(this, arguments));
+		}
+
+		_createClass(All, [{
+			key: 'render',
+			value: function render() {
+				return React.createElement(
+					'div',
+					null,
+					React.createElement(Space, null),
+					React.createElement(_Test.Test, null),
+					React.createElement(Space, null),
+					React.createElement(_Ending.Ending, null)
+				);
+			}
+		}]);
+
+		return All;
+	}(React.Component);
+
+	ReactDOM.render(React.createElement(All, null), document.getElementById('container'));
+
+/***/ },
+/* 1 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Test = exports.Test = function (_React$Component) {
 		_inherits(Test, _React$Component);
 
 		function Test() {
@@ -114,17 +164,35 @@
 		return Test;
 	}(React.Component);
 
-	var Ending = function (_React$Component2) {
-		_inherits(Ending, _React$Component2);
+/***/ },
+/* 2 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Ending = exports.Ending = function (_React$Component) {
+		_inherits(Ending, _React$Component);
 
 		function Ending() {
 			_classCallCheck(this, Ending);
 
-			var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(Ending).call(this));
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Ending).call(this));
 
-			_this2.state = { scroll: false };
-			_this2._handleScrollEvent = _this2._handleScrollEvent.bind(_this2);
-			return _this2;
+			_this.state = { scroll: false };
+			_this._handleScrollEvent = _this._handleScrollEvent.bind(_this);
+			return _this;
 		}
 
 		_createClass(Ending, [{
@@ -163,34 +231,6 @@
 
 		return Ending;
 	}(React.Component);
-
-	var All = function (_React$Component3) {
-		_inherits(All, _React$Component3);
-
-		function All() {
-			_classCallCheck(this, All);
-
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(All).apply(this, arguments));
-		}
-
-		_createClass(All, [{
-			key: 'render',
-			value: function render() {
-				return React.createElement(
-					'div',
-					null,
-					React.createElement(Space, null),
-					React.createElement(Test, null),
-					React.createElement(Space, null),
-					React.createElement(Ending, null)
-				);
-			}
-		}]);
-
-		return All;
-	}(React.Component);
-
-	ReactDOM.render(React.createElement(All, null), document.getElementById('container'));
 
 /***/ }
 /******/ ]);
