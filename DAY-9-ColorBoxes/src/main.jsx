@@ -1,4 +1,4 @@
-import { Rect } from './Rect.jsx';
+import { Rect } from 'Rect';
 
 class Playground extends React.Component {
 
