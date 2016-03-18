@@ -1,3 +1,5 @@
+var path = require('path');
+
 const __day_path__ = 'DAY-10-Scroll';
 
 module.exports = {
@@ -14,6 +16,10 @@ module.exports = {
 				query: { presets: ['es2015', 'react'] }
 			}
 		]
+	},
+	resolve: {
+		root: path.resolve(__dirname, __day_path__, 'src'),
+		extensions: ['', '.jsx']
 	},
 	externals: {
 		'react': 'React',

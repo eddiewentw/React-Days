@@ -1,5 +1,5 @@
-import { Test } from './Test.jsx';
-import { Ending } from './Ending.jsx';
+import { Test } from 'Test';
+import { Ending } from 'Ending';
 
 // Space area
 var Space = () => <div className='space'></div>
