@@ -1,7 +1,9 @@
+const __day_path__ = './DAY-9-ColorBoxes';
+
 module.exports = {
-	entry: './src/main.jsx',
+	entry: __day_path__+'/src/main.jsx',
 	output: {
-		path: __dirname,
+		path: __dirname+__day_path__,
 		filename: 'bundle.js'
 	},
 	module: {
