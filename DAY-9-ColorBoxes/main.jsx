@@ -1,30 +1,4 @@
-class Rect extends React.Component {
-
-	constructor() {
-		super();
-
-		this._mouseEnter = this._mouseEnter.bind(this); // cool
-		this.state = {
-			rr: 0, gg: 0, aa: 0
-		};
-	}
-
-	_randomColor() {
-		return parseInt(Math.random()*255);
-	}
-
-	_mouseEnter() {
-		this.setState({
-			rr: this._randomColor(), gg: this._randomColor(), aa: this._randomColor()
-		});
-	}
-
-	render() {
-		let rectBackgroundStyle = { backgroundColor: `rgb( ${this.state.rr}, ${this.state.gg}, ${this.state.aa} )` };
-		return <div className='rect' onMouseEnter={this._mouseEnter} onTouchEnd={this._mouseEnter} style={rectBackgroundStyle}></div>;
-	}
-
-}
+import { Rect } from './Rect.jsx';
 
 class Playground extends React.Component {
 
@@ -39,7 +13,7 @@ class Playground extends React.Component {
 		};
 		let Rects = [];
 		for( let i = 0; i < pgStyle.width/100*pgStyle.height/100; i++ ) {
-			Rects.push( <Rect /> );
+			Rects.push( <Rect key={i}/> );
 		}
 		return (
 			<div id='playground' style={pgStyle}>
