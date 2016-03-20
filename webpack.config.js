@@ -1,6 +1,6 @@
 var path = require('path');
 
-const __day_path__ = 'DAY-11-JumpingNumber';
+const __day_path__ = 'DAY-12-City';
 
 module.exports = {
 	entry: `./${__day_path__}/src/main.jsx`,
