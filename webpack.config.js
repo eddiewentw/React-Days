@@ -1,6 +1,6 @@
 var path = require('path');
 
-const __day_path__ = 'DAY-13-Subscribe';
+const __day_path__ = 'DAY-14-Newsfeed';
 
 module.exports = {
 	entry: `./${__day_path__}/src/main.jsx`,
