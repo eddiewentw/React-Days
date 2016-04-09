@@ -1,5 +1,5 @@
-import { LeftColumn } from 'LeftColumn';
-import { RightColumn } from 'RightColumn';
+import LeftColumn from 'LeftColumn';
+import RightColumn from 'RightColumn';
 
 Parse.initialize("Y5Y5GWiu9OoS9hTAUUAXO6gJrM7Hdxf4uLapfpK6", "c4PlOlsrUoDxTT55AxALHRrNoEiLPf23o7SltcaT");
 const userInfo = {

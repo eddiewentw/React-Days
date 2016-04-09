@@ -1,4 +1,4 @@
-import { Number } from 'Number';
+import Number from 'Number';
 
 class All extends React.Component {
 

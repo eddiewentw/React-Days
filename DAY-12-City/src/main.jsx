@@ -1,6 +1,6 @@
 import city_json from 'city.json'; /* https://github.com/mahemoff/geodata */
-import { Box } from 'Box';
-import { CityData } from 'CityData';
+import Box from 'Box';
+import CityData from 'CityData';
 
 class All extends React.Component {
 

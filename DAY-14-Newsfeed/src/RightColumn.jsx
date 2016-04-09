@@ -1,6 +1,6 @@
-import { Post } from 'Post';
+import Post from 'Post';
 
-export class RightColumn extends React.Component {
+export default class RightColumn extends React.Component {
 
 	render() {
 		let postArray = [];

@@ -1,4 +1,4 @@
-export class CityData extends React.Component {
+export default class CityData extends React.Component {
 
 	_handleData() {
 		if( this.props.data == null )

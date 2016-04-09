@@ -1,4 +1,4 @@
-export class Number extends React.Component {
+export default class Number extends React.Component {
 
 	constructor() {
 		super();

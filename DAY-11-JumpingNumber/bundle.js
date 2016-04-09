@@ -50,6 +50,10 @@
 
 	var _Number = __webpack_require__(1);
 
+	var _Number2 = _interopRequireDefault(_Number);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -76,7 +80,7 @@
 						null,
 						'每一小時就有'
 					),
-					React.createElement(_Number.Number, { DataValue: 3600, Interval: 0.02 }),
+					React.createElement(_Number2.default, { DataValue: 3600, Interval: 0.02 }),
 					React.createElement(
 						'h2',
 						null,
@@ -109,7 +113,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Number = exports.Number = function (_React$Component) {
+	var Number = function (_React$Component) {
 		_inherits(Number, _React$Component);
 
 		function Number() {
@@ -177,6 +181,8 @@
 
 		return Number;
 	}(React.Component);
+
+	exports.default = Number;
 
 /***/ }
 /******/ ]);

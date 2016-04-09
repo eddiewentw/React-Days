@@ -1,6 +1,6 @@
-import { PostArea } from 'PostArea';
+import PostArea from 'PostArea';
 
-export class PostBox extends React.Component {
+export default class PostBox extends React.Component {
 
 	constructor() {
 		super();

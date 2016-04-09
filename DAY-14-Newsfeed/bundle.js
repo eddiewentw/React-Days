@@ -50,7 +50,13 @@
 
 	var _LeftColumn = __webpack_require__(1);
 
+	var _LeftColumn2 = _interopRequireDefault(_LeftColumn);
+
 	var _RightColumn = __webpack_require__(5);
+
+	var _RightColumn2 = _interopRequireDefault(_RightColumn);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -131,8 +137,8 @@
 				return React.createElement(
 					'div',
 					{ id: 'posts' },
-					React.createElement(_LeftColumn.LeftColumn, { savePostMethod: this.savePost, user: this.props.user, data: this.state.data }),
-					React.createElement(_RightColumn.RightColumn, { data: this.state.data })
+					React.createElement(_LeftColumn2.default, { savePostMethod: this.savePost, user: this.props.user, data: this.state.data }),
+					React.createElement(_RightColumn2.default, { data: this.state.data })
 				);
 			}
 		}]);
@@ -151,13 +157,18 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	exports.LeftColumn = undefined;
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _PostBox = __webpack_require__(2);
 
+	var _PostBox2 = _interopRequireDefault(_PostBox);
+
 	var _Post = __webpack_require__(4);
+
+	var _Post2 = _interopRequireDefault(_Post);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -165,7 +176,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var LeftColumn = exports.LeftColumn = function (_React$Component) {
+	var LeftColumn = function (_React$Component) {
 		_inherits(LeftColumn, _React$Component);
 
 		function LeftColumn() {
@@ -181,14 +192,14 @@
 				if (this.props.data.length > 0) {
 					postArray = this.props.data.map(function (data, index) {
 						if (index % 2 == 1) {
-							return React.createElement(_Post.Post, { postData: data, key: data._objCount });
+							return React.createElement(_Post2.default, { postData: data, key: data._objCount });
 						}
 					});
 				}
 				return React.createElement(
 					'div',
 					{ className: 'column left' },
-					React.createElement(_PostBox.PostBox, { savePostMethod: this.props.savePostMethod, user: this.props.user }),
+					React.createElement(_PostBox2.default, { savePostMethod: this.props.savePostMethod, user: this.props.user }),
 					postArray
 				);
 			}
@@ -196,6 +207,8 @@
 
 		return LeftColumn;
 	}(React.Component);
+
+	exports.default = LeftColumn;
 
 /***/ },
 /* 2 */
@@ -206,11 +219,14 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	exports.PostBox = undefined;
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _PostArea = __webpack_require__(3);
+
+	var _PostArea2 = _interopRequireDefault(_PostArea);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -218,7 +234,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var PostBox = exports.PostBox = function (_React$Component) {
+	var PostBox = function (_React$Component) {
 		_inherits(PostBox, _React$Component);
 
 		function PostBox() {
@@ -249,7 +265,7 @@
 				return React.createElement(
 					'div',
 					{ id: 'input', className: 'post' },
-					React.createElement(_PostArea.PostArea, { onChange: this.handleTextareaChange }),
+					React.createElement(_PostArea2.default, { onChange: this.handleTextareaChange }),
 					React.createElement(
 						'div',
 						{ className: 'tool-bar' },
@@ -281,6 +297,8 @@
 		return PostBox;
 	}(React.Component);
 
+	exports.default = PostBox;
+
 /***/ },
 /* 3 */
 /***/ function(module, exports) {
@@ -299,7 +317,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var PostArea = exports.PostArea = function (_React$Component) {
+	var PostArea = function (_React$Component) {
 		_inherits(PostArea, _React$Component);
 
 		function PostArea() {
@@ -325,6 +343,8 @@
 		return PostArea;
 	}(React.Component);
 
+	exports.default = PostArea;
+
 /***/ },
 /* 4 */
 /***/ function(module, exports) {
@@ -343,7 +363,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Post = exports.Post = function (_React$Component) {
+	var Post = function (_React$Component) {
 		_inherits(Post, _React$Component);
 
 		function Post() {
@@ -478,6 +498,8 @@
 		return Post;
 	}(React.Component);
 
+	exports.default = Post;
+
 /***/ },
 /* 5 */
 /***/ function(module, exports, __webpack_require__) {
@@ -487,11 +509,14 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	exports.RightColumn = undefined;
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _Post = __webpack_require__(4);
+
+	var _Post2 = _interopRequireDefault(_Post);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -499,7 +524,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var RightColumn = exports.RightColumn = function (_React$Component) {
+	var RightColumn = function (_React$Component) {
 		_inherits(RightColumn, _React$Component);
 
 		function RightColumn() {
@@ -515,7 +540,7 @@
 				if (this.props.data.length > 0) {
 					postArray = this.props.data.map(function (data, index) {
 						if (index % 2 == 0) {
-							return React.createElement(_Post.Post, { postData: data, key: data._objCount });
+							return React.createElement(_Post2.default, { postData: data, key: data._objCount });
 						}
 					});
 				}
@@ -529,6 +554,8 @@
 
 		return RightColumn;
 	}(React.Component);
+
+	exports.default = RightColumn;
 
 /***/ }
 /******/ ]);

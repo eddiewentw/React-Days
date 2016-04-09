@@ -1,4 +1,4 @@
-export class Ending extends React.Component {
+export default class Ending extends React.Component {
 
 	constructor() {
 		super();

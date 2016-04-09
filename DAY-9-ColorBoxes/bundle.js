@@ -50,6 +50,10 @@
 
 	var _Rect = __webpack_require__(1);
 
+	var _Rect2 = _interopRequireDefault(_Rect);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -79,7 +83,7 @@
 				};
 				var Rects = [];
 				for (var i = 0; i < pgStyle.width / 100 * pgStyle.height / 100; i++) {
-					Rects.push(React.createElement(_Rect.Rect, { key: i }));
+					Rects.push(React.createElement(_Rect2.default, { key: i }));
 				}
 				return React.createElement(
 					'div',
@@ -112,7 +116,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Rect = exports.Rect = function (_React$Component) {
+	var Rect = function (_React$Component) {
 		_inherits(Rect, _React$Component);
 
 		function Rect() {
@@ -149,6 +153,8 @@
 
 		return Rect;
 	}(React.Component);
+
+	exports.default = Rect;
 
 /***/ }
 /******/ ]);

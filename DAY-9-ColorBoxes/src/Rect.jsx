@@ -1,4 +1,4 @@
-export class Rect extends React.Component {
+export default class Rect extends React.Component {
 
 	constructor() {
 		super();

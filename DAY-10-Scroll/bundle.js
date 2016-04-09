@@ -50,7 +50,13 @@
 
 	var _Test = __webpack_require__(1);
 
+	var _Test2 = _interopRequireDefault(_Test);
+
 	var _Ending = __webpack_require__(2);
+
+	var _Ending2 = _interopRequireDefault(_Ending);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -79,9 +85,9 @@
 					'div',
 					null,
 					React.createElement(Space, null),
-					React.createElement(_Test.Test, null),
+					React.createElement(_Test2.default, null),
 					React.createElement(Space, null),
-					React.createElement(_Ending.Ending, null)
+					React.createElement(_Ending2.default, null)
 				);
 			}
 		}]);
@@ -109,7 +115,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Test = exports.Test = function (_React$Component) {
+	var Test = function (_React$Component) {
 		_inherits(Test, _React$Component);
 
 		function Test() {
@@ -164,6 +170,8 @@
 		return Test;
 	}(React.Component);
 
+	exports.default = Test;
+
 /***/ },
 /* 2 */
 /***/ function(module, exports) {
@@ -182,7 +190,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Ending = exports.Ending = function (_React$Component) {
+	var Ending = function (_React$Component) {
 		_inherits(Ending, _React$Component);
 
 		function Ending() {
@@ -231,6 +239,8 @@
 
 		return Ending;
 	}(React.Component);
+
+	exports.default = Ending;
 
 /***/ }
 /******/ ]);

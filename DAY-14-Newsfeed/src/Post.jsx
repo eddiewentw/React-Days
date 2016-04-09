@@ -1,4 +1,4 @@
-export class Post extends React.Component {
+export default class Post extends React.Component {
 
 	constructor() {
 		super();

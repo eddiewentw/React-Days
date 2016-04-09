@@ -1,4 +1,4 @@
-export class PostArea extends React.Component {
+export default class PostArea extends React.Component {
 
 	handleAreaHeight(event) {
 		let element = event.target;

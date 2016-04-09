@@ -1,7 +1,7 @@
-import { PostBox } from 'PostBox';
-import { Post } from 'Post';
+import PostBox from 'PostBox';
+import Post from 'Post';
 
-export class LeftColumn extends React.Component {
+export default class LeftColumn extends React.Component {
 
 	render() {
 		let postArray = [];
